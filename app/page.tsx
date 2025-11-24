@@ -81,7 +81,7 @@ export default function LandingPage() {
               </h3>
 
               <div className="relative mx-auto flex md:flex-row flex-col md:gap-8 gap-6 justify-center max-w-4xl"></div>
-              <div className="grid lg:grid-cols-2 grid-cols-1 gap-[23px]">
+              <div className="grid xl:grid-cols-2 lg:grid-cols-1 gap-[23px]">
                 <div className="w-full sm:pt-0 pt-5 sm:pb-0 pb-5 sm:h-[153px] outline-2 outline-offset-2 outline-dashed outline-[#38E0FF] bg-[#0A1423] rounded-[14px] flex sm:flex-row flex-col justify-center items-center gap-5">
                   <p className="2xl:text-[64px] xl:[60px] lg:[55px] md:[50px] md:leading-none leading-[42px] text-[40px] font-bold text-[#38E0FF]">
                     <span className="text-base align-text-top">upto</span>
