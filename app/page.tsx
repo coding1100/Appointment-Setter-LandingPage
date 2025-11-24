@@ -81,36 +81,36 @@ export default function LandingPage() {
               </h3>
 
               <div className="relative mx-auto flex md:flex-row flex-col md:gap-8 gap-6 justify-center max-w-4xl"></div>
-              <div className="grid md:grid-cols-2 grid-cols-1 gap-[23px]">
+              <div className="grid xl:grid-cols-2 lg:grid-cols-1 gap-[23px]">
                 <div className="w-full sm:pt-0 pt-5 sm:pb-0 pb-5 sm:h-[153px] outline-2 outline-offset-2 outline-dashed outline-[#38E0FF] bg-[#0A1423] rounded-[14px] flex sm:flex-row flex-col justify-center items-center gap-5">
-                  <p className="md:text-[64px] md:leading-none leading-[42px] text-[40px] font-bold text-[#38E0FF]">
+                  <p className="2xl:text-[64px] xl:[60px] lg:[55px] md:[50px] md:leading-none leading-[42px] text-[40px] font-bold text-[#38E0FF]">
                     <span className="text-base align-text-top">upto</span>
                     20%
                   </p>
-                  <p className="md:text-[32px] text-[24px] font-medium text-white">
+                  <p className="2xl:text-[32px] xl:text-[28px] lg:text-[26px] text-[24px] font-medium text-white">
                     Increase in
                   </p>
                   <div className="relative z-30">
                     <div className="absolute z-10 left-1 w-[132px] h-[52px] bg-[#38e0ff] rounded-full "></div>
                     <div className="relative z-20 rounded-full bg-[#0A1423] h-[49px] flex justify-center items-center w-[132px] border border-[#38E0FF] ">
-                      <p className="md:text-[32px] text-[24px] font-medium text-[#38e0ff]">
+                      <p className="2xl:text-[32px] xl:text-[28px] lg:text-[26px] text-[24px] font-medium text-[#38e0ff]">
                         Leads
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="w-full sm:mb-0 mb-5 sm:pt-0 pt-5 sm:pb-0 pb-5 sm:h-[153px] outline-2 outline-offset-2 outline-dashed outline-[#38E0FF] bg-[#0A1423] rounded-[14px] flex sm:flex-row flex-col justify-center items-center gap-5">
-                  <p className="md:text-[64px] md:leading-none leading-[42px] text-[40px] font-bold text-[#38E0FF]">
+                  <p className="2xl:text-[64px] xl:[60px] lg:[55px] md:[50px] md:leading-none leading-[42px] text-[40px] font-bold text-[#38E0FF]">
                     <span className="text-base align-text-top">upto</span>
                     35%
                   </p>
-                  <p className="md:text-[32px] text-[24px] font-medium text-white">
+                  <p className="2xl:text-[32px] xl:text-[28px] lg:text-[26px] text-[24px] font-medium text-white">
                     Increase in
                   </p>
                   <div className="relative z-30">
                     <div className="absolute z-10 left-1 w-[175px] h-[52px] bg-[#38e0ff] rounded-full "></div>
                     <div className="relative z-20 rounded-full bg-[#0A1423] h-[49px] flex justify-center items-center w-[176px] border border-[#38E0FF] ">
-                      <p className="md:text-[32px] text-[24px] font-medium text-[#38e0ff]">
+                      <p className="2xl:text-[32px] xl:text-[28px] lg:text-[26px] text-[24px] font-medium text-[#38e0ff]">
                         Revenue
                       </p>
                     </div>
