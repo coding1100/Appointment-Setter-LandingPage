@@ -18,7 +18,7 @@ const NavBar: FC<Navbarprops> = ({}) => {
           <span className="hidden md:inline">AI APPOINTMENT SETTER</span>
         </Link>
 
-        <div className="hidden items-center space-x-10 text-sm font-medium text-[#C6CBE3] md:flex">
+        <div className="hidden items-center space-x-10 text-sm font-medium text-[#C6CBE3] lg:flex">
           <Link href="/product" className="transition hover:text-white">
             Product
           </Link>
