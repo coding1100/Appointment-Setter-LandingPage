@@ -55,16 +55,12 @@ export default function LandingPage() {
 
       <main className="relative z-10 lg:container lg:mx-auto">
         <div className="sm:px-16 px-9 ">
-          <Hero scrollY={scrollY} />
+          <Hero />
         </div>
         <div className="sm:px-10 px-4">
-          <Features
-            scrollY={scrollY}
-            featureSection={CleaningData.featureSection}
-          />
+          <Features featureSection={CleaningData.featureSection} />
 
           <PlatformPreviewSection
-            scrollY={scrollY}
             platformPreviewSection={CleaningData.platformPreviewSection}
           />
 
