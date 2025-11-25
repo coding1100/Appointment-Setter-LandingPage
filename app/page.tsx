@@ -51,7 +51,7 @@ export default function LandingPage() {
             "url(\"data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='4' cy='4' r='4' fill='%23283759'/%3E%3C/svg%3E\")",
         }}
       />
-
+      {/* nav bar */}
       <NavBar />
 
       <main className="relative z-10 lg:container lg:mx-auto">
