@@ -56,25 +56,18 @@ export default function LandingPage() {
 
       <main className="relative z-10 lg:container lg:mx-auto">
         <div className="sm:px-16 px-9 ">
-          <Hero scrollY={scrollY} />
+          <Hero />
         </div>
         <div className="sm:px-10 px-4">
-          <Features
-            scrollY={scrollY}
-            featureSection={plumberData.featureSection}
-          />
+          <Features featureSection={plumberData.featureSection} />
 
           <PlatformPreviewSection
-            scrollY={scrollY}
             platformPreviewSection={plumberData.platformPreviewSection}
           />
           <ProcessFlow />
 
-          <section className="relative sm:mt-10 mb-10">
-            <div
-              className="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-[#060C1E] via-[#0B162F] to-[#081128] shadow-[0_30px_80px_rgba(4,10,40,0.65)] sm:px-16 px-5 pt-10 sm:pb-24 pb-16"
-              style={{ transform: `translate3d(0, ${scrollY * 0.03}px, 0)` }}
-            >
+          <section className="relative">
+            <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-[#060C1E] via-[#0B162F] to-[#081128] shadow-[0_30px_80px_rgba(4,10,40,0.65)] sm:px-16 px-5 pt-10 sm:pb-24 pb-16">
               <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#38E0FF]/15 to-transparent" />
               <h3 className="relative mb-8 sm:mb-10 text-center sm:text-[34px] text-2xl font-semibold leading-tight text-white md:text-[40px]">
                 Increase in Revenue
