@@ -28,9 +28,9 @@ jobs:
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          password: ${{ secrets.VPS_PASSWORD }}
+          host: 148.230.93.34
+          username: root
+          password: Xsmvyvt2EEKV()
           port: 22
           script: |
             cd /var/www/appointment-setter-landingpage
