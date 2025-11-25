@@ -32,9 +32,12 @@ const ComparisonTable: FC<ComparisonTableProps> = () => {
   ];
 
   return (
-    <section className="container mx-auto sm:pt-24 pt-14 sm:pb-32">
+    <section className="container mx-auto pt-20 pb-12">
       <div className="mx-auto max-w-5xl">
         <div className="rounded-[32px] border border-white/10 bg-white/5 py-8 sm:py-10 px-4 sm:px-6 md:px-8 shadow-[0_25px_70px_rgba(9,18,56,0.4)] backdrop-blur-2xl">
+          <h2 className=" mx-auto text-center mb-6 sm:text-3xl text-2xl font-semibold text-white md:text-[42px] md:leading-[1.1]">
+            How Our AI Rep Compares With Others
+          </h2>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>

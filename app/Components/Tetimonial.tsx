@@ -72,7 +72,7 @@ const Testimonial: FC<Testimonialprops> = ({}) => {
   ];
 
   return (
-    <section className=" container mx-auto pt-24 pb-32">
+    <section className=" container mx-auto pt-10 pb-10">
       <h2 className="sm:text-[40px] text-2xl font-semibold leading-tight text-white md:text-[50px]">
         Loved by plumbing teams who live and die by booked jobs
       </h2>
