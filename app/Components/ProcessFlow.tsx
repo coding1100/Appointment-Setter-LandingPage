@@ -28,7 +28,7 @@ const ProcessFlow: FC<ProcessFlowProps> = () => {
   ];
 
   return (
-    <section className="container mx-auto sm:pt-24 pt-14 sm:pb-32">
+    <section className="container mx-auto sm:pt-20 pt-14 pb-20">
       <div className="rounded-[32px] border border-white/10 bg-white/5 py-10 sm:px-10 px-5 shadow-[0_25px_70px_rgba(9,18,56,0.4)] backdrop-blur-2xl">
         <div className="text-center mb-8 sm:mb-10 md:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">

@@ -5,11 +5,9 @@ import HeroImg from "@/app/assets/images/plumberHero.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-interface Heroprops {
-  scrollY: number;
-}
+interface Heroprops {}
 
-const Hero: FC<Heroprops> = ({ scrollY }) => {
+const Hero: FC<Heroprops> = ({}) => {
   const currentRoute = usePathname();
   const [formData, setFormData] = useState({
     email: "",
@@ -93,20 +91,9 @@ const Hero: FC<Heroprops> = ({ scrollY }) => {
   return (
     <section className="relative sm:pt-44 pt-24 sm:pb-20 pb-12 px-4 sm:px-6 container mx-auto">
       <div className="pointer-events-none absolute -inset-x-6 inset-y-0 z-0 overflow-hidden">
-        <div
-          className="absolute -top-32 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[#38E0FF]/12 blur-[140px]"
-          style={{ transform: `translate3d(-50%, ${scrollY * 0.15}px, 0)` }}
-        />
-        <div
-          className="absolute bottom-0 left-0 h-[22rem] w-[22rem] -translate-x-2/3 translate-y-1/3 rounded-full bg-[#FF6B6B]/10 blur-[160px]"
-          style={{ transform: `translate3d(0, ${scrollY * 0.25}px, 0)` }}
-        />
-        <div
-          className="absolute -right-1/3 top-10 h-[26rem] w-[26rem] rounded-full bg-[#2757FF]/14 blur-[180px]"
-          style={{
-            transform: `translate3d(0, ${scrollY * 0.1 * -1}px, 0)`,
-          }}
-        />
+        <div className="absolute -top-32 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[#38E0FF]/12 blur-[140px]" />
+        <div className="absolute bottom-0 left-0 h-[22rem] w-[22rem] -translate-x-2/3 translate-y-1/3 rounded-full bg-[#FF6B6B]/10 blur-[160px]" />
+        <div className="absolute -right-1/3 top-10 h-[26rem] w-[26rem] rounded-full bg-[#2757FF]/14 blur-[180px]" />
         <div
           className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,224,255,0.18),transparent_55%),radial-gradient(circle_at_80%_30%,rgba(39,87,255,0.18),transparent_50%)]"
           style={{ opacity: 0.6 }}

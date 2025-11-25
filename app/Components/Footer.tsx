@@ -29,12 +29,15 @@ const Footer: FC<Footerprops> = ({}) => {
     <footer className="relative border-t border-white/10 bg-[#01020A]/80 px-6 pt-16 pb-10 backdrop-blur-2xl">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 lg:flex-row lg:justify-between">
         <div className="max-w-sm space-y-6">
-          <img
-            src="https://d1yvfvgonqvf8f.cloudfront.net/assets/png/logo-D4gSa2mB.png"
-            alt="AI Appointment Setter Logo"
-            className="h-9 w-auto"
-            loading="lazy"
-          />
+          <Link
+            href="/"
+            className="flex items-center space-x-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#9AA7D1]"
+          >
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#38E0FF] to-[#6F4BFF] text-base font-black text-[#04112D] shadow-[0_10px_25px_rgba(56,224,255,0.35)]">
+              AI
+            </span>
+            <span className="hidden md:inline uppercase">Samairep</span>
+          </Link>
           <p className="text-base text-[#B4C0E4]">
             Built for plumbing crews that can&apos;t afford to miss a single
             leak alert.
