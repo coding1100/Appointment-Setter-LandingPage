@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FC } from "react";
 
 interface Featuresprops {
-  scrollY: number;
   featureSection: {
     headline: string;
     problemCards: {
@@ -13,13 +12,10 @@ interface Featuresprops {
   };
 }
 
-const Features: FC<Featuresprops> = ({ scrollY, featureSection }) => {
+const Features: FC<Featuresprops> = ({ featureSection }) => {
   return (
-    <section className="container mx-auto sm:pt-24 pt-14 sm:pb-32">
-      <div
-        className="rounded-[32px] border border-white/10 bg-white/5 py-10 sm:px-10 px-5 shadow-[0_25px_70px_rgba(9,18,56,0.4)] backdrop-blur-2xl"
-        style={{ transform: `translate3d(0, ${scrollY * -0.03}px, 0)` }}
-      >
+    <section className="container mx-auto pt-20 pb-20">
+      <div className="rounded-[32px] border border-white/10 bg-white/5 py-10 sm:px-10 px-5 shadow-[0_25px_70px_rgba(9,18,56,0.4)] backdrop-blur-2xl">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <p className="sm:mt-4 max-w-md text-2xl font-semibold text-white text-center mx-auto">
             {featureSection.headline}

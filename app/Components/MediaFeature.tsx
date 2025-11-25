@@ -13,7 +13,7 @@ interface MediaFeatureprops {
 
 const MediaFeature: FC<MediaFeatureprops> = ({ featureSections }) => {
   return (
-    <section className="relative bg-[#02030B] container mx-auto sm:pt-24 pt-14 sm:pb-32 pb-16">
+    <section className="relative bg-[#02030B] container mx-auto sm:pt-24 pt-14 sm:pb-24 pb-16">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0B1632] via-[#02030B]_60% to-transparent"
         aria-hidden="true"

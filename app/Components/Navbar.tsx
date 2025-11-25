@@ -15,7 +15,7 @@ const NavBar: FC<Navbarprops> = ({}) => {
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#38E0FF] to-[#6F4BFF] text-base font-black text-[#04112D] shadow-[0_10px_25px_rgba(56,224,255,0.35)]">
             AI
           </span>
-          <span className="hidden md:inline">AI APPOINTMENT SETTER</span>
+          <span className="hidden md:inline uppercase">Samairep</span>
         </Link>
 
         <div className="hidden items-center space-x-10 text-sm font-medium text-[#C6CBE3] lg:flex">

@@ -66,7 +66,7 @@ export const plumberData = {
       description:
         "Our AI Rep ensures no call goes to voice mail, and all calls are answered instantly.",
       cta: "Boost show rates",
-      image: "/videos/plumbingVoiceMails.gif",
+      image: "/videos/plumbingVoicemails.gif",
     },
     {
       headline: "Managing leads manually",

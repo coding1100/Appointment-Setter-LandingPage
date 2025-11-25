@@ -2,7 +2,6 @@ import { Play } from "lucide-react";
 import { FC, useEffect, useRef, useState } from "react";
 
 interface PlatformPreviewSectionprops {
-  scrollY: number;
   platformPreviewSection: {
     headline: string;
     video: string;
@@ -10,7 +9,6 @@ interface PlatformPreviewSectionprops {
 }
 
 const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
-  scrollY,
   platformPreviewSection,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -45,11 +43,8 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
   };
 
   return (
-    <section className="relative container mx-auto pb-28 ">
-      <div
-        className="relative overflow-hidden sm:pb-28 pb-16 rounded-[40px] border border-white/12 bg-gradient-to-br from-[#060C1E] via-[#0B162F] to-[#081128] shadow-[0_30px_80px_rgba(4,10,40,0.65)]"
-        style={{ transform: `translate3d(0, ${scrollY * 0.03}px, 0)` }}
-      >
+    <section className="relative container mx-auto">
+      <div className="relative overflow-hidden sm:pb-28 pb-16 rounded-[40px] border border-white/12 bg-gradient-to-br from-[#060C1E] via-[#0B162F] to-[#081128] shadow-[0_30px_80px_rgba(4,10,40,0.65)]">
         <div className="relative flex flex-col items-center justify-center px-10 pb-16 pt-20 text-center">
           <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#38E0FF]/15 to-transparent" />
 
