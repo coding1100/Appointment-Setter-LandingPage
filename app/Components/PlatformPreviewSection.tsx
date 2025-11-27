@@ -52,7 +52,7 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
             {platformPreviewSection.headline}
           </h2>
         </div>
-        <div className="relative aspect-video max-w-3xl overflow-hidden rounded-[40px] mx-auto">
+        <div className="relative aspect-video max-w-3xl overflow-hidden rounded-[40px] mx-auto bg-[#0A122C]">
           {!isPlaying && (
             <button
               type="button"
@@ -70,7 +70,12 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
             onEnded={() => setIsPlaying(false)}
             controls={isPlaying}
             playsInline
-            poster={platformPreviewSection.video}
+            preload="metadata"
+            onLoadedMetadata={(e) => {
+              // Set video to first frame for thumbnail
+              const video = e.currentTarget;
+              video.currentTime = 0.1;
+            }}
           >
             <source src={platformPreviewSection.video} type="video/mp4" />
             Your browser does not support the video tag.

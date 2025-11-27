@@ -1,27 +1,22 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
+import Logo from "@/app/assets/images/logo.png";
 
 interface Footerprops {}
 
 const Footer: FC<Footerprops> = ({}) => {
   const footerLinks = {
     product: [
-      { label: "Features", href: "/features" },
-      { label: "Use Cases", href: "/use-cases" },
       { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms of Use", href: "/terms" },
     ],
-    company: [
-      { label: "About Us", href: "/about" },
-      { label: "Careers", href: "/careers" },
-    ],
+    company: [{ label: "About Us", href: "/about" }],
     social: [
       { label: "LinkedIn", href: "https://www.linkedin.com" },
-      { label: "Twitter", href: "https://x.com" },
-      { label: "YouTube", href: "https://www.youtube.com" },
-      { label: "Discord", href: "https://discord.com" },
-      { label: "Support", href: "/support" },
+      { label: "Facebook", href: "https://facebook.com" },
+      { label: "Instagram", href: "https://www.instagram.com" },
     ],
   };
 
@@ -33,22 +28,34 @@ const Footer: FC<Footerprops> = ({}) => {
             href="/"
             className="flex items-center space-x-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#9AA7D1]"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#38E0FF] to-[#6F4BFF] text-base font-black text-[#04112D] shadow-[0_10px_25px_rgba(56,224,255,0.35)]">
-              AI
-            </span>
-            <span className="hidden md:inline uppercase">Samairep</span>
+            <Image
+              src={Logo}
+              alt="Logo"
+              className="max-w-[120px] min-w-[70px]"
+            />
           </Link>
           <p className="text-base text-[#B4C0E4]">
             Built for plumbing crews that can&apos;t afford to miss a single
             leak alert.
           </p>
-          <Link
-            href="/register"
-            className="inline-flex items-center gap-3 rounded-full bg-[#38E0FF] px-6 py-2 text-sm font-semibold text-[#021026] shadow-[0_18px_45px_rgba(56,224,255,0.35)] transition hover:shadow-[0_24px_60px_rgba(56,224,255,0.45)]"
+
+          <button
+            type="button"
+            onClick={() => {
+              const form = document.getElementById("quoteForm");
+              if (form) {
+                form.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+            className="inline-flex items-center gap-3 rounded-full bg-[#38E0FF] px-6 py-2 text-sm font-semibold text-[#021026] shadow-[0_18px_45px_rgba(56,224,255,0.35)] transition hover:shadow-[0_24px_60px_rgba(56,224,255,0.45)]cursor-pointer"
           >
-            Book a Free Trial
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+            <span>Book a Free Trial</span>
+            {/* <ArrowRight className="h-4 w-4" /> */}
+            <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-[#38E0FF]/80 to-[#38E0FF]/20 blur-xl opacity-0 transition-opacity group-hover:opacity-100" />
+          </button>
           <p className="pt-4 text-xs uppercase tracking-[0.3em] text-[#586694]">
             © 2025 Scheduler Labs
           </p>
