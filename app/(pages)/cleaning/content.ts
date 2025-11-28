@@ -74,7 +74,7 @@ export const CleaningData = {
       description:
         "Our AI Rep captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
       cta: "Boost show rates",
-      image: "/videos/cleaningVoiceMails.gif",
+      image: "/videos/CleaningManualCalls.gif",
     },
   ],
   faqSection: [
