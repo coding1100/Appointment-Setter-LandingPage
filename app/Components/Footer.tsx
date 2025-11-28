@@ -57,7 +57,7 @@ const Footer: FC<Footerprops> = ({}) => {
             <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-[#38E0FF]/80 to-[#38E0FF]/20 blur-xl opacity-0 transition-opacity group-hover:opacity-100" />
           </button>
           <p className="pt-4 text-xs uppercase tracking-[0.3em] text-[#586694]">
-            © 2025 Scheduler Labs
+            © 2025 sam ai
           </p>
         </div>
 
@@ -117,9 +117,9 @@ const Footer: FC<Footerprops> = ({}) => {
           </div>
         </div>
       </div>
-      <p className="mt-16 text-center text-xs uppercase tracking-[0.28em] text-[#4D5C86]">
-        Scheduler Labs, Inc.
-      </p>
+      {/* <p className="mt-16 text-center text-xs uppercase tracking-[0.28em] text-[#4D5C86]">
+        sam ai.
+      </p> */}
     </footer>
   );
 };

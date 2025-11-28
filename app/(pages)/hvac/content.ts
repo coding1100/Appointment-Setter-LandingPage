@@ -50,7 +50,7 @@ export const hvacData = {
       description:
         "AI Appointment Setter answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
       cta: "See emergency mode",
-      image: "/videos/hvacLateNightCalls.gif",
+      image: "/videos/HVACLateNightCalls.gif",
     },
     {
       headline: "Missing Calls While at Work",
@@ -58,7 +58,7 @@ export const hvacData = {
       description:
         "While you’re busy at work, our AI Rep answers calls, gathers key details and schedules service without double-booking.",
       cta: "Streamline dispatch",
-      image: "/videos/hvacBusyOnSight.gif",
+      image: "/videos/HVACBusyOnSight.gif",
     },
     {
       headline: "Voice Mails Piling Up",
@@ -66,7 +66,7 @@ export const hvacData = {
       description:
         "Our AI Rep ensures there are no voice mails and calls are answered in timely manner.",
       cta: "Boost show rates",
-      image: "/videos/hvacVoiceMails.gif",
+      image: "/videos/HVACVoiceMails.gif",
     },
     {
       headline: "Managing leads manually",
@@ -74,7 +74,7 @@ export const hvacData = {
       description:
         "Our AI Rep captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
       cta: "Boost show rates",
-      image: "/videos/hvacVoiceMails.gif",
+      image: "/videos/HVACManualCalls.gif",
     },
   ],
   faqSection: [
