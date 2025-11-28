@@ -1,5 +1,5 @@
-import { Play } from "lucide-react";
-import { FC, useEffect, useRef, useState } from "react";
+import { Play, Pause } from "lucide-react";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 
 interface PlatformPreviewSectionprops {
   platformPreviewSection: {
@@ -8,38 +8,207 @@ interface PlatformPreviewSectionprops {
   };
 }
 
+declare global {
+  interface Window {
+    YT: any;
+    onYouTubeIframeAPIReady: () => void;
+  }
+}
+
 const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
   platformPreviewSection,
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const playerRef = useRef<any>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.pause();
-    video.currentTime = 0;
-    setIsPlaying(false);
-  }, []);
+  // Check if video is YouTube URL and convert to embed format
+  const isYouTube = useMemo(() => {
+    return (
+      platformPreviewSection.video.includes("youtube.com") ||
+      platformPreviewSection.video.includes("youtu.be")
+    );
+  }, [platformPreviewSection.video]);
 
-  const handlePlayClick = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video
-      .play()
-      .then(() => setIsPlaying(true))
-      .catch(() => {});
+  const getYouTubeVideoId = (url: string): string => {
+    let videoId = "";
+
+    // Extract video ID from different YouTube URL formats
+    if (url.includes("youtu.be/")) {
+      videoId = url.split("youtu.be/")[1].split("?")[0].split("&")[0];
+    } else if (url.includes("youtube.com/watch?v=")) {
+      videoId = url.split("v=")[1].split("&")[0];
+    } else if (url.includes("youtube.com/embed/")) {
+      videoId = url.split("embed/")[1].split("?")[0].split("&")[0];
+    }
+
+    return videoId;
   };
 
-  const handleVideoClick = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      handlePlayClick();
-    } else {
-      video.pause();
-      setIsPlaying(false);
+  const getYouTubeEmbedUrl = (
+    url: string,
+    enableApi: boolean = false
+  ): string => {
+    const videoId = getYouTubeVideoId(url);
+    const params = new URLSearchParams({
+      rel: "0",
+      modestbranding: "1",
+      iv_load_policy: "3",
+      controls: "0",
+      showinfo: "0",
+      fs: "0",
+      cc_load_policy: "0",
+      disablekb: "1",
+      playsinline: "1",
+      enablejsapi: enableApi ? "1" : "0",
+      ...(isPlaying && { autoplay: "1" }),
+    });
+    return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+  };
+
+  // Format time in MM:SS
+  const formatTime = (seconds: number): string => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  // Load YouTube IFrame API
+  useEffect(() => {
+    if (!isYouTube) return;
+
+    const loadYouTubeAPI = () => {
+      if (window.YT && window.YT.Player) {
+        initializePlayer();
+        return;
+      }
+
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+
+      window.onYouTubeIframeAPIReady = () => {
+        initializePlayer();
+      };
+    };
+
+    const initializePlayer = () => {
+      if (!containerRef.current || playerRef.current) return;
+
+      const videoId = getYouTubeVideoId(platformPreviewSection.video);
+      playerRef.current = new window.YT.Player(containerRef.current, {
+        videoId: videoId,
+        playerVars: {
+          rel: 0,
+          modestbranding: 1,
+          iv_load_policy: 3,
+          controls: 0,
+          showinfo: 0,
+          fs: 0,
+          cc_load_policy: 0,
+          disablekb: 1,
+          playsinline: 1,
+          autoplay: isPlaying ? 1 : 0,
+        },
+        events: {
+          onReady: (event: any) => {
+            const duration = event.target.getDuration();
+            setDuration(duration);
+            if (isPlaying) {
+              event.target.playVideo();
+            }
+          },
+          onStateChange: (event: any) => {
+            if (event.data === window.YT.PlayerState.PLAYING) {
+              setIsPlaying(true);
+              startTimeUpdate();
+            } else if (event.data === window.YT.PlayerState.PAUSED) {
+              setIsPlaying(false);
+              stopTimeUpdate();
+            } else if (event.data === window.YT.PlayerState.ENDED) {
+              setIsPlaying(false);
+              setCurrentTime(0);
+              stopTimeUpdate();
+            }
+          },
+        },
+      });
+    };
+
+    if (isPlaying) {
+      loadYouTubeAPI();
     }
+
+    return () => {
+      stopTimeUpdate();
+      if (playerRef.current) {
+        try {
+          playerRef.current.destroy();
+        } catch (e) {
+          // Ignore destroy errors
+        }
+        playerRef.current = null;
+      }
+    };
+  }, [isYouTube, isPlaying, platformPreviewSection.video]);
+
+  const startTimeUpdate = () => {
+    stopTimeUpdate();
+    intervalRef.current = setInterval(() => {
+      if (playerRef.current) {
+        try {
+          const current = playerRef.current.getCurrentTime();
+          setCurrentTime(current);
+        } catch (e) {
+          // Ignore errors
+        }
+      }
+    }, 100);
+  };
+
+  const stopTimeUpdate = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  const handlePlayPause = () => {
+    if (!playerRef.current) {
+      setIsPlaying(true);
+      return;
+    }
+
+    try {
+      if (isPlaying) {
+        playerRef.current.pauseVideo();
+      } else {
+        playerRef.current.playVideo();
+      }
+    } catch (e) {
+      // Ignore errors
+    }
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const seekTime = parseFloat(e.target.value);
+    setCurrentTime(seekTime);
+    if (playerRef.current) {
+      try {
+        playerRef.current.seekTo(seekTime, true);
+      } catch (e) {
+        // Ignore errors
+      }
+    }
+  };
+
+  const getYouTubeThumbnail = (url: string): string => {
+    const videoId = getYouTubeVideoId(url);
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   };
 
   return (
@@ -53,33 +222,98 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
           </h2>
         </div>
         <div className="relative aspect-video max-w-3xl overflow-hidden rounded-[40px] mx-auto bg-[#0A122C]">
-          {!isPlaying && (
-            <button
-              type="button"
-              onClick={handlePlayClick}
-              className="absolute left-1/2 top-1/2 z-10 flex h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#060C1E] shadow-lg transition hover:scale-105"
-              aria-label="Play video"
+          {isYouTube ? (
+            <>
+              {!isPlaying && !playerRef.current && (
+                <>
+                  <img
+                    src={getYouTubeThumbnail(platformPreviewSection.video)}
+                    alt="Video thumbnail"
+                    className="h-full w-full object-cover"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setIsPlaying(true)}
+                    className="absolute left-1/2 top-1/2 z-10 flex h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#060C1E] shadow-lg transition hover:scale-105"
+                    aria-label="Play video"
+                  >
+                    <Play className="h-6 w-6" fill="currentColor" />
+                  </button>
+                </>
+              )}
+              {isPlaying && (
+                <>
+                  <div ref={containerRef} className="h-full w-full" />
+                  {/* Custom Controls */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                    {/* Seekbar */}
+                    <div className="mb-2">
+                      <input
+                        type="range"
+                        min="0"
+                        max={duration || 100}
+                        value={currentTime}
+                        onChange={handleSeek}
+                        className="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer slider"
+                        style={{
+                          background: `linear-gradient(to right, #38E0FF 0%, #38E0FF ${
+                            (currentTime / (duration || 1)) * 100
+                          }%, rgba(255,255,255,0.2) ${
+                            (currentTime / (duration || 1)) * 100
+                          }%, rgba(255,255,255,0.2) 100%)`,
+                        }}
+                      />
+                    </div>
+                    {/* Controls Bar */}
+                    <div className="flex items-center justify-between">
+                      <button
+                        type="button"
+                        onClick={handlePlayPause}
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30"
+                        aria-label={isPlaying ? "Pause" : "Play"}
+                      >
+                        {isPlaying ? (
+                          <Pause className="h-5 w-5" fill="currentColor" />
+                        ) : (
+                          <Play className="h-5 w-5" fill="currentColor" />
+                        )}
+                      </button>
+                      {/* Duration */}
+                      <span className="text-sm text-white font-medium">
+                        {formatTime(currentTime)} / {formatTime(duration)}
+                      </span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </>
+          ) : (
+            <video
+              className="h-full w-full cursor-pointer object-cover"
+              onClick={() => {
+                const video = document.querySelector("video");
+                if (video) {
+                  if (video.paused) {
+                    video.play().then(() => setIsPlaying(true));
+                  } else {
+                    video.pause();
+                    setIsPlaying(false);
+                  }
+                }
+              }}
+              onEnded={() => setIsPlaying(false)}
+              controls={isPlaying}
+              playsInline
+              preload="metadata"
+              onLoadedMetadata={(e) => {
+                const video = e.currentTarget;
+                video.currentTime = 0.1;
+              }}
             >
-              <Play className="h-6 w-6" fill="currentColor" />
-            </button>
+              <source src={platformPreviewSection.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           )}
-          <video
-            ref={videoRef}
-            className="h-full w-full cursor-pointer object-cover"
-            onClick={handleVideoClick}
-            onEnded={() => setIsPlaying(false)}
-            controls={isPlaying}
-            playsInline
-            preload="metadata"
-            onLoadedMetadata={(e) => {
-              // Set video to first frame for thumbnail
-              const video = e.currentTarget;
-              video.currentTime = 0.1;
-            }}
-          >
-            <source src={platformPreviewSection.video} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
         </div>
         <div className="w-full flex justify-center pt-7">
           <button

@@ -26,7 +26,7 @@ export const plumberData = {
   },
   platformPreviewSection: {
     headline: "Watch how our appointment setter books appointment for plumbers",
-    video: "/videos/plumbarVid.mp4",
+    video: "https://youtu.be/iMyYW7tteRM?si=v6sOFSFF41jrAACk",
   },
   revenueSection: {
     headline: "Increase in revenue",
