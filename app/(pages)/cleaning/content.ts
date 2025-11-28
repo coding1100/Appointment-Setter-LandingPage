@@ -26,7 +26,7 @@ export const CleaningData = {
   },
   platformPreviewSection: {
     headline: "Watch how our appointment setter books appointment for Cleaning",
-    video: "/videos/cleaning.mp4",
+    video: "/videos/cleaningVid.mp4",
   },
   revenueSection: {
     headline: "Increase in revenue",

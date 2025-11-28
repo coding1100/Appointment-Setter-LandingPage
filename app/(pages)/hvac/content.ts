@@ -26,7 +26,7 @@ export const hvacData = {
   },
   platformPreviewSection: {
     headline: "Watch how our appointment setter books appointment for HVAC",
-    video: "/videos/hvac.mp4",
+    video: "/videos/HVACVid.mp4",
   },
   revenueSection: {
     headline: "Increase in revenue",

@@ -14,9 +14,9 @@ const Footer: FC<Footerprops> = ({}) => {
     ],
     company: [{ label: "About Us", href: "/about" }],
     social: [
-      { label: "LinkedIn", href: "https://www.linkedin.com" },
-      { label: "Facebook", href: "https://facebook.com" },
-      { label: "Instagram", href: "https://www.instagram.com" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/110087381" },
+      { label: "Facebook", href: "https://www.facebook.com/SamAIRep" },
+      { label: "Instagram", href: "https://www.instagram.com/samairep" },
     ],
   };
 
