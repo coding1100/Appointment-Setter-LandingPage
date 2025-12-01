@@ -18,14 +18,14 @@ const NavBar: FC<Navbarprops> = ({}) => {
           />
         </Link>
 
-        <div className="hidden items-center space-x-10 text-sm font-medium text-[#C6CBE3] lg:flex">
+        {/* <div className="hidden items-center space-x-10 text-sm font-medium text-[#C6CBE3] lg:flex">
           <Link href="/pricing" className="transition hover:text-white">
             Pricing
           </Link>
           <Link href="/about" className="transition hover:text-white">
             About Us
           </Link>
-        </div>
+        </div> */}
 
         <button
           type="button"

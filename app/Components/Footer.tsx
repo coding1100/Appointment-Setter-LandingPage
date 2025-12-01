@@ -5,11 +5,11 @@ interface Footerprops {}
 
 const Footer: FC<Footerprops> = ({}) => {
   const footerLinks = {
-    product: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms of Use", href: "/terms" },
-    ],
-    company: [{ label: "About Us", href: "/about" }],
+    // product: [
+    //   { label: "Privacy Policy", href: "/privacy-policy" },
+    //   { label: "Terms of Use", href: "/terms" },
+    // ],
+    // company: [{ label: "About Us", href: "/about" }],
     social: [
       { label: "LinkedIn", href: "https://www.linkedin.com/company/110087381" },
       { label: "Facebook", href: "https://www.facebook.com/SamAIRep" },
@@ -59,7 +59,7 @@ const Footer: FC<Footerprops> = ({}) => {
         </div>
 
         <div className="grid flex-1 grid-cols-1 gap-10 text-sm md:grid-cols-3 lg:gap-16">
-          <div>
+          {/* <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.32em] text-[#7687B4]">
               Product
             </h4>
@@ -92,7 +92,7 @@ const Footer: FC<Footerprops> = ({}) => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.32em] text-[#7687B4]">
               Social Media
