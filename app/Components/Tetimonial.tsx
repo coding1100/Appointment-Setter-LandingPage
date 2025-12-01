@@ -1,13 +1,4 @@
 import { FC } from "react";
-import Image from "next/image";
-import review1 from "@/app/assets/images/reviews/review1.jpg";
-import review2 from "@/app/assets/images/reviews/review2.jpg";
-import review3 from "@/app/assets/images/reviews/review3.webp";
-import review4 from "@/app/assets/images/reviews/review4.jpg";
-import review5 from "@/app/assets/images/reviews/review5.jpg";
-import review6 from "@/app/assets/images/reviews/review6.jpeg";
-import review7 from "@/app/assets/images/reviews/review7.jpeg";
-import review8 from "@/app/assets/images/reviews/review8.jpeg";
 
 interface Testimonialprops {}
 
@@ -18,56 +9,56 @@ const Testimonial: FC<Testimonialprops> = ({}) => {
         '"We used to lose every after-hours job. Now the AI answers late-night calls instantly, books emergencies, and secures next-day appointments before customers move on."',
       name: "Morgan Blake",
       city: "Austin, TX — Sep/2025",
-      image: review1,
+      image: "/images/reviews/review1.jpg",
     },
     {
       quote:
         '"Middle-of-the-night leaks were costing us thousands. The AI catches those calls, gathers details, and confirms the crew slot in seconds. Revenue jumped fast."',
       name: "Ben Martin",
       city: "Phoenix, AZ — June/2025",
-      image: review2,
+      image: "/images/reviews/review2.jpg",
     },
     {
       quote:
         '"When I’m stuck in meetings, the AI picks up every call, verifies the issue, and schedules the right tech. No more callbacks or scrambling during lunch."',
       name: "Jason Lowery",
       city: "Denver, CO — Feb/2025",
-      image: review3,
+      image: "/images/reviews/review3.webp",
     },
     {
       quote:
         '"I used to return 20 missed calls after my shift. Now the AI handles all daytime inquiries, confirms addresses, and books jobs without double-booking."',
       name: "Claire Walters",
       city: "Portland, OR — Jan/2025",
-      image: review4,
+      image: "/images/reviews/review4.jpg",
     },
     {
       quote:
         '"We were drowning in voicemails. The AI answers instantly, logs transcripts, and sends everything to one dashboard. My team hasn’t touched voicemail in months."',
       name: "Micheal Mclaughlin",
       city: "Seattle, WA — Mar/2024",
-      image: review5,
+      image: "/images/reviews/review5.jpg",
     },
     {
       quote:
         '"Instead of sorting through a full voicemail inbox every morning, we now see every call neatly transcribed. Nothing gets lost, and follow-ups are automatic."',
       name: "Naomi Feld",
       city: "Miami, FL — May/2024",
-      image: review6,
+      image: "/images/reviews/review6.jpeg",
     },
     {
       quote:
         '"We used to track leads on spreadsheets. The AI now routes, nurtures, and updates each prospect automatically. My team finally focuses on closing — not admin."',
       name: "Evan Chambers",
       city: "Chicago, IL — Dec/2024",
-      image: review7,
+      image: "/images/reviews/review7.jpeg",
     },
     {
       quote:
         '"Lead follow-up was slow and inconsistent. The AI sends reminders, collects details, and keeps customers engaged. Close rates are up, and no leads slip through."',
       name: "Kevin Garcia",
       city: "Tampa, FL — Dec/2024",
-      image: review8,
+      image: "/images/reviews/review8.jpeg",
     },
   ];
 
@@ -86,7 +77,7 @@ const Testimonial: FC<Testimonialprops> = ({}) => {
               {testimonial.quote}
             </span>
             <div className="flex items-center gap-4">
-              <Image
+              <img
                 src={testimonial.image}
                 alt={testimonial.name}
                 className="h-12 w-12 rounded-full border border-white/15 object-cover"

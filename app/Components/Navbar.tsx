@@ -1,8 +1,5 @@
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FC } from "react";
-import Logo from "@/app/assets/images/logo.png";
-import Image from "next/image";
 
 interface Navbarprops {}
 
@@ -14,7 +11,11 @@ const NavBar: FC<Navbarprops> = ({}) => {
           href="/"
           className="flex items-center space-x-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#9AA7D1]"
         >
-          <Image src={Logo} alt="Logo" className="max-w-[120px] min-w-[70px]" />
+          <img
+            src="/images/logo.png"
+            alt="Logo"
+            className="max-w-[120px] min-w-[70px]"
+          />
         </Link>
 
         <div className="hidden items-center space-x-10 text-sm font-medium text-[#C6CBE3] lg:flex">
