@@ -214,8 +214,8 @@ const Hero: FC<Heroprops> = ({}) => {
           </form>
         </div>
         <div className="relative z-10 w-full flex-1 rounded-3xl max-h-[500px]">
-          <Image
-            src={HeroImg}
+          <img
+            src="/images/plumberHero.png"
             alt="Hero Image"
             className="mx-auto object-cover rounded-3xl"
           />

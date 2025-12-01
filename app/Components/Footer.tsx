@@ -1,8 +1,5 @@
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
-import Logo from "@/app/assets/images/logo.png";
 
 interface Footerprops {}
 
@@ -28,8 +25,8 @@ const Footer: FC<Footerprops> = ({}) => {
             href="/"
             className="flex items-center space-x-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#9AA7D1]"
           >
-            <Image
-              src={Logo}
+            <img
+              src="/images/logo.png"
               alt="Logo"
               className="max-w-[120px] min-w-[70px]"
             />
