@@ -1,14 +1,15 @@
-name: Deploy to VPS
+name: CI/CD
 
 on:
   push:
     branches:
+      - develop
       - main
 
 jobs:
-  deploy:
+  deploy-dev:
     runs-on: ubuntu-latest
-
+    if: github.ref == 'refs/heads/develop'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,16 +26,54 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Remove node_modules (clean up dev dependencies)
+        run: rm -rf node_modules
+
+      - name: Copy files to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: 148.230.93.34
+          username: root
+          password: ${{ secrets.VPS_PASSWORD }}
+          source: ".next,public,package.json,package-lock.json,next.config.js"
+          target: "/var/www/appointment-setter-landingpage"
+
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: 148.230.93.34
           username: root
-          password: Xsmvyvt2EEKV()
-          port: 22
+          password: ${{ secrets.VPS_PASSWORD }}
           script: |
             cd /var/www/appointment-setter-landingpage
-            git pull origin main
-            npm ci --production=false
-            npm run build
+            npm ci --production
             pm2 restart appointment-setter-landingpage || pm2 start npm --name "appointment-setter-landingpage" -- start
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Deploy to S3
+        run: aws s3 sync ./out s3://${{ secrets.AWS_S3_BUCKET }} --delete
