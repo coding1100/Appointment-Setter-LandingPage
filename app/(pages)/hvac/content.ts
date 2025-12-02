@@ -25,7 +25,7 @@ export const hvacData = {
     ],
   },
   platformPreviewSection: {
-    headline: "Watch how our appointment setter books appointment for HVAC",
+    headline: "Watch how Sam AI books appointment for HVAC",
     video: "https://youtu.be/Adkac_rnuV0?si=tzW39Y0cuCiRj_Lt",
   },
   revenueSection: {
@@ -48,7 +48,7 @@ export const hvacData = {
       headline: "Missing Late Night Calls",
       id: "problem-night-calls",
       description:
-        "Sam AI Rep answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
+        "Sam AI answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
       cta: "See emergency mode",
       image: "/videos/HVACLateNightCalls.gif",
     },
@@ -56,7 +56,7 @@ export const hvacData = {
       headline: "Missing Calls While at Work",
       id: "problem-busy-crews",
       description:
-        "While you’re busy at work, our AI Rep answers calls, gathers key details and schedules service without double-booking.",
+        "While you’re busy at work, Sam AI answers calls, gathers key details and schedules service without double-booking.",
       cta: "Streamline dispatch",
       image: "/videos/HVACBusyOnSight.gif",
     },
@@ -64,7 +64,7 @@ export const hvacData = {
       headline: "Voice Mails Piling Up",
       id: "problem-triage",
       description:
-        "Our AI Rep ensures there are no voice mails and calls are answered in timely manner.",
+        "Sam AI ensures there are no voice mails and calls are answered in timely manner.",
       cta: "Boost show rates",
       image: "/videos/HVACVoiceMails.gif",
     },
@@ -72,7 +72,7 @@ export const hvacData = {
       headline: "Managing leads manually",
       id: "problem-voicemail",
       description:
-        "Our AI Rep captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
+        "Sam AI captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
       cta: "Boost show rates",
       image: "/videos/HVACManualCalls.gif",
     },

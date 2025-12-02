@@ -136,7 +136,7 @@ const Hero: FC<Heroprops> = ({}) => {
               <span className="block">cleaning specialist</span>
             )}
             <span className="block bg-gradient-to-r from-white via-[#A4D7FF] to-[#38E0FF] bg-clip-text text-transparent">
-              Sam AI Rep
+              AI Appointment Setter
             </span>
           </div>
           <p
