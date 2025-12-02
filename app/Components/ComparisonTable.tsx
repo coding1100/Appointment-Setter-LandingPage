@@ -46,7 +46,7 @@ const ComparisonTable: FC<ComparisonTableProps> = () => {
                     Features
                   </th>
                   <th className="text-center py-4 px-3 sm:px-4 md:px-5 text-sm sm:text-base font-bold text-white bg-[#070D1F]/50">
-                    AI Appointment Setter
+                    Sam AI Rep
                   </th>
                   <th className="text-center py-4 px-3 sm:px-4 md:px-5 text-sm sm:text-base font-bold text-white bg-[#070D1F]/50">
                     Your Atlas

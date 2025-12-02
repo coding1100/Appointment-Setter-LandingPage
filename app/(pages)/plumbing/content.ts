@@ -1,6 +1,6 @@
 export const plumberData = {
   heroSection: {
-    headline: "World's first plumbing specialist Ai Appointment setter ",
+    headline: "World's first plumbing specialist Sam AI Rep ",
     description: "Answer Plumbing Calls Intelligently. Book Automatically",
   },
   featureSection: {
@@ -48,7 +48,7 @@ export const plumberData = {
       headline: "Missing Late Night Calls",
       id: "problem-night-calls",
       description:
-        "AI Appointment Setter answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
+        "Sam AI Rep answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
       cta: "See emergency mode",
       image: "/videos/plumbingLateNightCalls.gif",
     },

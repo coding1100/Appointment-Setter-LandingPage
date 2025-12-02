@@ -1,6 +1,6 @@
 export const hvacData = {
   heroSection: {
-    headline: "World's first HVAC specialist Ai Appointment setter ",
+    headline: "World's first HVAC specialist Sam AI Rep ",
     description: "Answer HVAC Calls Intelligently. Book Automatically",
   },
   featureSection: {
@@ -48,7 +48,7 @@ export const hvacData = {
       headline: "Missing Late Night Calls",
       id: "problem-night-calls",
       description:
-        "AI Appointment Setter answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
+        "Sam AI Rep answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
       cta: "See emergency mode",
       image: "/videos/HVACLateNightCalls.gif",
     },
@@ -79,8 +79,7 @@ export const hvacData = {
   ],
   faqSection: [
     {
-      question:
-        "How does the AI Appointment Setter handle emergency HVAC calls?",
+      question: "How does the Sam AI Rep handle emergency HVAC calls?",
       answer:
         "The AI instantly detects urgent issues, collects essential details from customers, and books the correct service slot immediately—reducing wait times and missed opportunities.",
     },
