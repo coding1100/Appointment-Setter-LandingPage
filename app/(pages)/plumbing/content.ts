@@ -1,6 +1,6 @@
 export const plumberData = {
   heroSection: {
-    headline: "World's first plumbing specialist Ai Appointment setter ",
+    headline: "World's first plumbing specialist Sam AI Rep ",
     description: "Answer Plumbing Calls Intelligently. Book Automatically",
   },
   featureSection: {
@@ -15,7 +15,7 @@ export const plumberData = {
         anchor: "problem-busy-crews",
       },
       {
-        title: "Voice mails piling up",
+        title: "voicemails piling up",
         anchor: "problem-triage",
       },
       {
@@ -25,7 +25,7 @@ export const plumberData = {
     ],
   },
   platformPreviewSection: {
-    headline: "Watch how our appointment setter books appointment for plumbers",
+    headline: "Watch how Sam AI books appointment for plumbers",
     video: "https://youtu.be/iMyYW7tteRM?si=v6sOFSFF41jrAACk",
   },
   revenueSection: {
@@ -48,7 +48,7 @@ export const plumberData = {
       headline: "Missing Late Night Calls",
       id: "problem-night-calls",
       description:
-        "AI Appointment Setter answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
+        "Sam AI answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
       cta: "See emergency mode",
       image: "/videos/plumbingLateNightCalls.gif",
     },
@@ -56,15 +56,15 @@ export const plumberData = {
       headline: "Missing Calls While at Work",
       id: "problem-busy-crews",
       description:
-        "While you’re busy at work, our AI Rep answers calls, gathers key details and schedules service without double-booking.",
+        "While you’re busy at work, Sam AI answers calls, gathers key details and schedules service without double-booking.",
       cta: "Streamline dispatch",
       image: "/videos/plumberBusyOnSight.gif",
     },
     {
-      headline: "Voice Mails Piling Up",
+      headline: "voicemails Piling Up",
       id: "problem-triage",
       description:
-        "Our AI Rep ensures no call goes to voice mail, and all calls are answered instantly.",
+        "Sam AI ensures no call goes to voice mail, and all calls are answered instantly.",
       cta: "Boost show rates",
       image: "/videos/plumbingVoicemails.gif",
     },
@@ -72,7 +72,7 @@ export const plumberData = {
       headline: "Managing leads manually",
       id: "problem-voicemail",
       description:
-        "Our AI Rep captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
+        "Sam AI captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
       cta: "Boost show rates",
       image: "/videos/PlumberManualCalls.gif",
     },

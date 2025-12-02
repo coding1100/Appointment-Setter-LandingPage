@@ -1,6 +1,6 @@
 export const plumberData = {
   heroSection: {
-    headline: "World's first plumbing specialist Ai Appointment setter ",
+    headline: "World's first plumbing specialist Sam AI Rep ",
     description: "Answer Plumbing Calls Intelligently. Book Automatically",
   },
   featureSection: {
@@ -15,7 +15,7 @@ export const plumberData = {
         anchor: "problem-busy-crews",
       },
       {
-        title: "Voice mails piling up",
+        title: "voicemails piling up",
         anchor: "problem-triage",
       },
       {
@@ -25,7 +25,7 @@ export const plumberData = {
     ],
   },
   platformPreviewSection: {
-    headline: "Watch how our appointment setter books appointment for plumbers",
+    headline: "Watch how Sam AI books appointment for plumbers",
     video: "https://youtu.be/iMyYW7tteRM?si=v6sOFSFF41jrAACk",
   },
   revenueSection: {
@@ -48,7 +48,7 @@ export const plumberData = {
       headline: "Missing Late Night Calls",
       id: "problem-night-calls",
       description:
-        "AI Appointment Setter answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
+        "Sam AI answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
       cta: "See emergency mode",
       image: "/videos/plumbingLateNightCalls.gif",
     },
@@ -56,15 +56,15 @@ export const plumberData = {
       headline: "Missing Calls While at Work",
       id: "problem-busy-crews",
       description:
-        "While you’re busy at work, our AI Rep answers calls, gathers key details and schedules service without double-booking.",
+        "While you’re busy at work, Sam AI answers calls, gathers key details and schedules service without double-booking.",
       cta: "Streamline dispatch",
       image: "/videos/plumberBusyOnSight.gif",
     },
     {
-      headline: "Voice Mails Piling Up",
+      headline: "voicemails Piling Up",
       id: "problem-triage",
       description:
-        "Our AI Rep ensures no call goes to voice mail, and all calls are answered instantly.",
+        "Sam AI ensures no call goes to voice mail, and all calls are answered instantly.",
       cta: "Boost show rates",
       image: "/videos/plumbingVoicemails.gif",
     },
@@ -72,7 +72,7 @@ export const plumberData = {
       headline: "Managing leads manually",
       id: "problem-voicemail",
       description:
-        "Our AI Rep captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
+        "Sam AI captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
       cta: "Boost show rates",
       image: "/videos/PlumberManualCalls.gif",
     },
@@ -80,13 +80,13 @@ export const plumberData = {
   faqSection: [
     {
       question:
-        "How does the AI voice agent handle incoming plumbing service calls?",
+        "How does Sam AI voice agent handle incoming plumbing service calls?",
       answer:
-        "When a customer calls your plumbing business, the system automatically answers using your AI voice agent. The agent can handle emergency calls (like burst pipes or water leaks) and routine service requests (drain cleaning, water heater installation, pipe repair, etc.). The AI agent uses natural conversation to understand the customer's plumbing issue, collects their contact information and service address, and schedules an appointment based on your available time slots. The system supports both browser testing (to preview how your agent sounds) and real phone calls via Twilio integration. The agent uses Google Gemini 2.0 for intelligent conversation, Deepgram for accurate speech recognition, and ElevenLabs for natural-sounding voice responses.",
+        "When a customer calls your plumbing business, the system automatically answers using your AI voice agent. The agent can handle emergency calls (like burst pipes or water leaks) and routine service requests (drain cleaning, water heater installation, pipe repair, etc.). Sam AI agent uses natural conversation to understand the customer's plumbing issue, collects their contact information and service address, and schedules an appointment based on your available time slots. The system supports both browser testing (to preview how your agent sounds) and real phone calls via Twilio integration. The agent uses Google Gemini 2.0 for intelligent conversation, Deepgram for accurate speech recognition, and ElevenLabs for natural-sounding voice responses.",
     },
     {
       question:
-        "Can I customize the AI agent for different plumbing services like emergency repairs, installations, or maintenance?",
+        "Can I customize Sam AI agent for different plumbing services like emergency repairs, installations, or maintenance?",
       answer:
         "Absolutely! You can create separate AI agents for different plumbing service types. For example, you might have one agent for emergency plumbing calls (with urgent tone and immediate scheduling), another for routine services like drain cleaning or water heater maintenance, and another for new installations. Each agent can have its own voice personality (choose from 12+ professional voices), customized greeting that mentions your plumbing business, and specific conversation prompts that understand plumbing terminology. You can update agent settings anytime - for instance, if you want to emphasize your 24/7 emergency service or highlight your expertise with tankless water heaters.",
     },
@@ -98,15 +98,15 @@ export const plumberData = {
     },
     {
       question:
-        "What happens when a customer books a plumbing service appointment through the AI agent?",
+        "What happens when a customer books a plumbing service appointment through Sam AI agent?",
       answer:
         'When a customer successfully books an appointment (e.g., "I need a plumber to fix my clogged drain on Thursday"), the system: (1) Validates the appointment time against your existing schedule and business hours, (2) Creates a complete appointment record with customer name, phone number, service address, service type (drain cleaning, pipe repair, etc.), and appointment time, (3) Automatically sends a professional confirmation email to the customer with all appointment details, (4) Stores the appointment in your system with status "scheduled". You can later update the appointment status when your plumber arrives (confirmed), completes the work (completed with notes about what was fixed), or if the customer cancels (cancelled with reason).',
     },
     {
       question:
-        "How do I set up my plumbing business phone number to receive calls through the AI agent?",
+        "How do I set up my plumbing business phone number to receive calls through Sam AI agent?",
       answer:
-        "First, you'll need a Twilio account. Test your Twilio credentials using the system's test endpoint to ensure they work correctly. Then, create the Twilio integration for your plumbing business by providing your Account SID and Auth Token - the system encrypts these credentials securely. Next, search for available local phone numbers (customers prefer calling local numbers) or use an existing number. Purchase and assign the phone number to your plumbing AI agent. The system automatically configures webhooks so when customers call your plumbing business number, the AI agent answers and can schedule appointments. You can have multiple phone numbers for different service areas or different agents.",
+        "First, you'll need a Twilio account. Test your Twilio credentials using the system's test endpoint to ensure they work correctly. Then, create the Twilio integration for your plumbing business by providing your Account SID and Auth Token - the system encrypts these credentials securely. Next, search for available local phone numbers (customers prefer calling local numbers) or use an existing number. Purchase and assign the phone number to your plumbing AI agent. The system automatically configures webhooks so when customers call your plumbing business number, Sam AI agent answers and can schedule appointments. You can have multiple phone numbers for different service areas or different agents.",
     },
     {
       question:

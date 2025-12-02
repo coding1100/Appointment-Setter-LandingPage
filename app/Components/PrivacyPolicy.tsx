@@ -381,7 +381,7 @@ const PrivacyPolicy: FC<PrivacyPolicyProps> = () => {
                 You may request deletion of your personal information by:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4 text-sm sm:text-base">
-                <li>Contacting us at support@yourcompany.com</li>
+                <li>Contacting us at support@samai.com</li>
                 <li>Using account deletion features (where available)</li>
                 <li>
                   We will delete your data within 30 days, subject to legal
@@ -539,22 +539,21 @@ const PrivacyPolicy: FC<PrivacyPolicyProps> = () => {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:privacy@yourcompany.com"
+                  href="mailto:privacy@samai.com"
                   className="text-[#38E0FF] hover:text-[#38E0FF]/80 transition"
                 >
-                  privacy@yourcompany.com
+                  privacy@samai.com
                 </a>
               </p>
               <p>
                 Support:{" "}
                 <a
-                  href="mailto:support@yourcompany.com"
+                  href="mailto:support@samai.com"
                   className="text-[#38E0FF] hover:text-[#38E0FF]/80 transition"
                 >
-                  support@yourcompany.com
+                  support@samai.com
                 </a>
               </p>
-              <p>Address: [Your Company Address]</p>
             </div>
           </div>
         </div>

@@ -7,47 +7,49 @@ on:
       - main
 
 jobs:
-  deploy-dev:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build application
-        run: npm run build
-
-      - name: Remove node_modules (clean up dev dependencies)
-        run: rm -rf node_modules
-
-      - name: Copy files to VPS
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: 148.230.93.34
-          username: root
-          password: ${{ secrets.VPS_PASSWORD }}
-          source: ".next,public,package.json,package-lock.json,next.config.js"
-          target: "/var/www/appointment-setter-landingpage"
-
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: 148.230.93.34
-          username: root
-          password: ${{ secrets.VPS_PASSWORD }}
-          script: |
-            cd /var/www/appointment-setter-landingpage
-            npm ci --production
-            pm2 restart appointment-setter-landingpage || pm2 start npm --name "appointment-setter-landingpage" -- start
+#  deploy-dev:
+#    runs-on: ubuntu-latest
+#    if: github.ref == 'refs/heads/develop'
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: "20"
+#          cache: "npm"
+#
+#      - name: Install dependencies
+#        run: npm ci
+#
+#      - name: Build application
+#        run: npm run build
+#        env:
+#          NEXT_PUBLIC_API_URL: https://app-setter.digitalmarketingservicesnewyork.com/api/v1
+#
+#      - name: Remove node_modules (clean up dev dependencies)
+#        run: rm -rf node_modules
+#
+#      - name: Copy files to VPS
+#        uses: appleboy/scp-action@v0.1.7
+#        with:
+#          host: 148.230.93.34
+#          username: root
+#          password: ${{ secrets.VPS_PASSWORD }}
+#          source: ".next,public,package.json,package-lock.json,next.config.js"
+#          target: "/var/www/appointment-setter-landingpage"
+#
+#      - name: Deploy to VPS
+#        uses: appleboy/ssh-action@v1.0.3
+#        with:
+#          host: 148.230.93.34
+#          username: root
+#          password: ${{ secrets.VPS_PASSWORD }}
+#          script: |
+#            cd /var/www/appointment-setter-landingpage
+#            npm ci --production
+#            pm2 restart appointment-setter-landingpage || pm2 start npm --name "appointment-setter-landingpage" -- start
 
   deploy-prod:
     runs-on: ubuntu-latest
@@ -67,6 +69,8 @@ jobs:
 
       - name: Build application
         run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: https://api.samairep.com/api/v1
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
