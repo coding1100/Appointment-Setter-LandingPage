@@ -814,7 +814,6 @@ const TermsofUse: FC<TermsofUseProps> = () => {
                   support@samai.com
                 </a>
               </p>
-              <p>Address: [Your Company Address]</p>
             </div>
           </div>
 

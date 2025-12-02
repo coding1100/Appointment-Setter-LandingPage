@@ -554,7 +554,6 @@ const PrivacyPolicy: FC<PrivacyPolicyProps> = () => {
                   support@samai.com
                 </a>
               </p>
-              <p>Address: [Your Company Address]</p>
             </div>
           </div>
         </div>

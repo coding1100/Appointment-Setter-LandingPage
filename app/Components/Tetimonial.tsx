@@ -71,7 +71,7 @@ const Testimonial: FC<Testimonialprops> = ({}) => {
         {testimonials.map((testimonial) => (
           <article
             key={testimonial.name}
-            className="relative flex h-full flex-col justify-between gap-6 rounded-[28px] border border-white/8 bg-[#070D1F]/75 p-8 text-left shadow-[0_22px_70px_rgba(5,12,35,0.45)] backdrop-blur-2xl transition hover:-translate-y-2 hover:border-white/18"
+            className="cursor-pointer relative flex h-full flex-col justify-between gap-6 rounded-[28px] border border-white/8 bg-[#070D1F]/75 p-8 text-left shadow-[0_22px_70px_rgba(5,12,35,0.45)] backdrop-blur-2xl transition hover:-translate-y-2 hover:border-white/18"
           >
             <span className="sm:text-[20px] text-base leading-[1.5] text-[#E8ECFF]">
               {testimonial.quote}
