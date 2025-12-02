@@ -4,6 +4,8 @@ import { FC, useState, FormEvent } from "react";
 import HeroImg from "@/app/assets/images/plumberHero.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 interface Heroprops {}
 
@@ -45,15 +47,12 @@ const Hero: FC<Heroprops> = ({}) => {
       phone: "",
     };
 
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!validateEmail(formData.email)) {
+    // Both fields are optional, but if provided, they must be valid
+    if (formData.email.trim() && !validateEmail(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone is required";
-    } else if (!validatePhone(formData.phone)) {
+    if (formData.phone.trim() && !validatePhone(formData.phone)) {
       newErrors.phone = "Please enter a valid phone number";
     }
 
@@ -68,22 +67,44 @@ const Hero: FC<Heroprops> = ({}) => {
       return;
     }
 
+    // Check if at least one field is provided
+    if (!formData.email.trim() && !formData.phone.trim()) {
+      toast.error("Please provide at least an email or phone number");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // TODO: Add API call here
-      // const response = await fetch('/api/submit-form', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // });
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl) {
+        throw new Error("API URL is not configured");
+      }
 
-      console.log("Form data:", formData);
+      const payload = {
+        email: formData.email.trim() || "",
+        phone: formData.phone.trim() || "",
+      };
+
+      const response = await axios.post(`${apiUrl}/contacts`, payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      // Show success message
+      toast.success("Thank you! We'll be in touch soon.");
 
       // Reset form after successful submission
       setFormData({ email: "", phone: "" });
-    } catch (error) {
-      console.error("Form submission error:", error);
+      setErrors({ email: "", phone: "" });
+    } catch (error: any) {
+      // Handle error response
+      const errorMessage =
+        error.response?.data?.message ||
+        error.message ||
+        "Something went wrong. Please try again.";
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

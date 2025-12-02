@@ -76,25 +76,102 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
-  // Load YouTube IFrame API
+  // Load YouTube IFrame API script (only once)
   useEffect(() => {
     if (!isYouTube) return;
 
-    const loadYouTubeAPI = () => {
-      if (window.YT && window.YT.Player) {
-        initializePlayer();
-        return;
+    if (window.YT && window.YT.Player) {
+      return; // API already loaded
+    }
+
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+  }, [isYouTube]);
+
+  // Cleanup function to safely destroy player
+  const destroyPlayer = () => {
+    stopTimeUpdate();
+    if (!playerRef.current) return;
+
+    const player = playerRef.current;
+    const container = containerRef.current;
+
+    // Clear the ref immediately to prevent any further operations
+    playerRef.current = null;
+
+    // Early return if container doesn't exist or is not in DOM
+    if (!container || !document.body.contains(container)) {
+      return;
+    }
+
+    try {
+      // Find the iframe element
+      const iframe = container.querySelector("iframe");
+
+      if (iframe) {
+        // Critical: Verify iframe is still a direct child of container
+        // and both are still in the DOM before attempting any operations
+        const isIframeChild = iframe.parentNode === container;
+        const isContainerInDOM = document.body.contains(container);
+        const isIframeInDOM = document.body.contains(iframe);
+
+        if (isIframeChild && isContainerInDOM && isIframeInDOM) {
+          try {
+            // Try to destroy the player - this will remove the iframe
+            player.destroy();
+          } catch (destroyError: any) {
+            // If destroy fails (e.g., removeChild error), manually remove the iframe
+            // This handles the case where the iframe structure has changed
+            try {
+              // Re-check one more time before manual removal
+              if (
+                iframe.parentNode === container &&
+                document.body.contains(container)
+              ) {
+                // Use remove() if available (more forgiving), otherwise removeChild
+                if (typeof iframe.remove === "function") {
+                  iframe.remove();
+                } else if (iframe.parentNode === container) {
+                  container.removeChild(iframe);
+                }
+              }
+            } catch (removeError) {
+              // Silently ignore - DOM already cleaned up by React or iframe already removed
+            }
+          }
+        }
+        // If iframe is not a direct child or not in DOM, don't try to destroy
+        // Just clear ref and let React handle cleanup
+      } else {
+        // No iframe found - player might already be destroyed or not initialized
+        // Only try destroy if container is still valid
+        if (document.body.contains(container)) {
+          try {
+            player.destroy();
+          } catch (e) {
+            // Ignore - player might already be destroyed
+          }
+        }
       }
+    } catch (e) {
+      // Silently ignore all errors - DOM might already be cleaned up by React
+      // The ref is already cleared, so no memory leaks
+    }
+  };
 
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-
-      window.onYouTubeIframeAPIReady = () => {
-        initializePlayer();
-      };
+  // Destroy player when video URL changes
+  useEffect(() => {
+    return () => {
+      destroyPlayer();
     };
+  }, [platformPreviewSection.video]);
+
+  // Initialize YouTube player when user clicks play
+  useEffect(() => {
+    if (!isYouTube || !isPlaying || !containerRef.current) return;
+    if (playerRef.current) return; // Player already initialized
 
     const initializePlayer = () => {
       if (!containerRef.current || playerRef.current) return;
@@ -112,15 +189,13 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
           cc_load_policy: 0,
           disablekb: 1,
           playsinline: 1,
-          autoplay: isPlaying ? 1 : 0,
+          autoplay: 1,
         },
         events: {
           onReady: (event: any) => {
             const duration = event.target.getDuration();
             setDuration(duration);
-            if (isPlaying) {
-              event.target.playVideo();
-            }
+            event.target.playVideo();
           },
           onStateChange: (event: any) => {
             if (event.data === window.YT.PlayerState.PLAYING) {
@@ -139,22 +214,21 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
       });
     };
 
-    if (isPlaying) {
-      loadYouTubeAPI();
+    if (window.YT && window.YT.Player) {
+      initializePlayer();
+    } else {
+      window.onYouTubeIframeAPIReady = () => {
+        initializePlayer();
+      };
     }
-
-    return () => {
-      stopTimeUpdate();
-      if (playerRef.current) {
-        try {
-          playerRef.current.destroy();
-        } catch (e) {
-          // Ignore destroy errors
-        }
-        playerRef.current = null;
-      }
-    };
   }, [isYouTube, isPlaying, platformPreviewSection.video]);
+
+  // Final cleanup on component unmount
+  useEffect(() => {
+    return () => {
+      destroyPlayer();
+    };
+  }, []);
 
   const startTimeUpdate = () => {
     stopTimeUpdate();
@@ -224,12 +298,20 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
         <div className="relative aspect-video max-w-3xl overflow-hidden rounded-[40px] mx-auto bg-[#0A122C]">
           {isYouTube ? (
             <>
+              {/* Always keep container mounted to avoid DOM removal issues */}
+              <div
+                ref={containerRef}
+                className={`h-full w-full ${
+                  !isPlaying && !playerRef.current ? "hidden" : ""
+                }`}
+              />
+              {/* Thumbnail overlay - only show when not playing and player not initialized */}
               {!isPlaying && !playerRef.current && (
                 <>
                   <img
                     src={getYouTubeThumbnail(platformPreviewSection.video)}
                     alt="Video thumbnail"
-                    className="h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <button
                     type="button"
@@ -241,50 +323,47 @@ const PlatformPreviewSection: FC<PlatformPreviewSectionprops> = ({
                   </button>
                 </>
               )}
-              {isPlaying && (
-                <>
-                  <div ref={containerRef} className="h-full w-full" />
-                  {/* Custom Controls */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    {/* Seekbar */}
-                    <div className="mb-2">
-                      <input
-                        type="range"
-                        min="0"
-                        max={duration || 100}
-                        value={currentTime}
-                        onChange={handleSeek}
-                        className="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer slider"
-                        style={{
-                          background: `linear-gradient(to right, #38E0FF 0%, #38E0FF ${
-                            (currentTime / (duration || 1)) * 100
-                          }%, rgba(255,255,255,0.2) ${
-                            (currentTime / (duration || 1)) * 100
-                          }%, rgba(255,255,255,0.2) 100%)`,
-                        }}
-                      />
-                    </div>
-                    {/* Controls Bar */}
-                    <div className="flex items-center justify-between">
-                      <button
-                        type="button"
-                        onClick={handlePlayPause}
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30"
-                        aria-label={isPlaying ? "Pause" : "Play"}
-                      >
-                        {isPlaying ? (
-                          <Pause className="h-5 w-5" fill="currentColor" />
-                        ) : (
-                          <Play className="h-5 w-5" fill="currentColor" />
-                        )}
-                      </button>
-                      {/* Duration */}
-                      <span className="text-sm text-white font-medium">
-                        {formatTime(currentTime)} / {formatTime(duration)}
-                      </span>
-                    </div>
+              {/* Custom Controls - only show when playing */}
+              {isPlaying && playerRef.current && (
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                  {/* Seekbar */}
+                  <div className="mb-2">
+                    <input
+                      type="range"
+                      min="0"
+                      max={duration || 100}
+                      value={currentTime}
+                      onChange={handleSeek}
+                      className="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer slider"
+                      style={{
+                        background: `linear-gradient(to right, #38E0FF 0%, #38E0FF ${
+                          (currentTime / (duration || 1)) * 100
+                        }%, rgba(255,255,255,0.2) ${
+                          (currentTime / (duration || 1)) * 100
+                        }%, rgba(255,255,255,0.2) 100%)`,
+                      }}
+                    />
                   </div>
-                </>
+                  {/* Controls Bar */}
+                  <div className="flex items-center justify-between">
+                    <button
+                      type="button"
+                      onClick={handlePlayPause}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30"
+                      aria-label={isPlaying ? "Pause" : "Play"}
+                    >
+                      {isPlaying ? (
+                        <Pause className="h-5 w-5" fill="currentColor" />
+                      ) : (
+                        <Play className="h-5 w-5" fill="currentColor" />
+                      )}
+                    </button>
+                    {/* Duration */}
+                    <span className="text-sm text-white font-medium">
+                      {formatTime(currentTime)} / {formatTime(duration)}
+                    </span>
+                  </div>
+                </div>
               )}
             </>
           ) : (
