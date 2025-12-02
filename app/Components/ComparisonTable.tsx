@@ -17,7 +17,7 @@ const ComparisonTable: FC<ComparisonTableProps> = () => {
     "Prompt Injection Defense & Security",
   ];
 
-  // Your Atlas has ticks for first 3 features, rest are crosses
+  // Other AI Setter has ticks for first 3 features, rest are crosses
   const yourAtlasFeatures = [
     true, // tick
     true, // tick
@@ -49,7 +49,7 @@ const ComparisonTable: FC<ComparisonTableProps> = () => {
                     Sam AI Rep
                   </th>
                   <th className="text-center py-4 px-3 sm:px-4 md:px-5 text-sm sm:text-base font-bold text-white bg-[#070D1F]/50">
-                    Your Atlas
+                    Other AI Setter
                   </th>
                 </tr>
               </thead>

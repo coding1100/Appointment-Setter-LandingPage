@@ -799,19 +799,19 @@ const TermsofUse: FC<TermsofUseProps> = () => {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:legal@yourcompany.com"
+                  href="mailto:legal@samai.com"
                   className="text-[#38E0FF] hover:text-[#38E0FF]/80 transition"
                 >
-                  legal@yourcompany.com
+                  legal@samai.com
                 </a>
               </p>
               <p>
                 Support:{" "}
                 <a
-                  href="mailto:support@yourcompany.com"
+                  href="mailto:support@samai.com"
                   className="text-[#38E0FF] hover:text-[#38E0FF]/80 transition"
                 >
-                  support@yourcompany.com
+                  support@samai.com
                 </a>
               </p>
               <p>Address: [Your Company Address]</p>

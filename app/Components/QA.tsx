@@ -19,6 +19,11 @@ const QA: FC<QAProps> = ({ faqSection }) => {
 
   return (
     <section className="relative container mx-auto sm:pt-24 pt-14 sm:pb-32 pb-16">
+      <div className="w-full text-center mb-8 ">
+        <h2 className="sm:text-[40px] text-2xl font-semibold leading-tight text-white md:text-[50px]">
+          Frequently Asked Questions
+        </h2>
+      </div>
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:px-0 px-5">
         {faqSection.map((item, index) => {
           const isOpen = openIndex === index;

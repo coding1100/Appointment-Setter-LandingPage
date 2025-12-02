@@ -39,7 +39,7 @@ const ProcessFlow: FC<ProcessFlowProps> = () => {
             See how Sam AI transforms your business in just a few simple steps
           </p>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-4 sm:gap-x-3 sm:gap-y-5 md:gap-x-4 md:gap-y-6 lg:gap-x-5 lg:gap-y-6">
+        <div className="sm:flex flex-wrap hidden items-center justify-center gap-x-2 gap-y-4 sm:gap-x-3 sm:gap-y-5 md:gap-x-4 md:gap-y-6 lg:gap-x-5 lg:gap-y-6">
           {steps.map((step, index) => {
             const isLastTwo = index >= 3; // Steps 4 and 5 (index 3 and 4)
 
@@ -73,6 +73,48 @@ const ProcessFlow: FC<ProcessFlowProps> = () => {
                 {index < steps.length - 1 && (
                   <ChevronRight
                     className={`h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 flex-shrink-0 rotate-90 sm:rotate-0 hidden sm:block ${
+                      isLastTwo ? "text-[#7de2f5]" : "text-[#38E0FF]"
+                    }`}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <div className="sm:hidden flex flex-col items-center gap-4 sm:hidden">
+          {steps.map((step, index) => {
+            const isLastTwo = index >= 3;
+
+            return (
+              <div key={step.id} className="flex flex-col items-center w-full">
+                <div className="relative group flex-shrink-0 w-full max-w-[280px]">
+                  <div
+                    className={`relative rounded-xl border-2 px-4 py-3 backdrop-blur-2xl transition-all hover:scale-105 w-full ${
+                      isLastTwo
+                        ? "bg-[#38E0FF] text-[#070D1F] border-[#7de2f5]/50 shadow-[0_0_30px_rgba(125,226,245,0.4),0_20px_60px_rgba(9,18,56,0.7)] hover:border-[#7de2f5]/70 hover:shadow-[0_0_40px_rgba(125,226,245,0.5),0_25px_80px_rgba(9,18,56,0.8)]"
+                        : "bg-[#070D1F] border-[#38E0FF]/30 shadow-[0_0_30px_rgba(56,224,255,0.3),0_20px_60px_rgba(9,18,56,0.7)] hover:border-[#38E0FF]/50 hover:shadow-[0_0_40px_rgba(56,224,255,0.4),0_25px_80px_rgba(9,18,56,0.8)]"
+                    }`}
+                  >
+                    <div
+                      className={`absolute inset-0 rounded-xl bg-gradient-to-br opacity-50 ${
+                        isLastTwo
+                          ? "from-[#7de2f5]/20 via-transparent to-transparent"
+                          : "from-[#38E0FF]/5 via-transparent to-transparent"
+                      }`}
+                    />
+                    <p className="relative text-sm font-bold text-center break-words leading-tight">
+                      {step.text}
+                    </p>
+                  </div>
+                  <div
+                    className={`pointer-events-none absolute inset-0 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity ${
+                      isLastTwo ? "bg-[#7de2f5]/30" : "bg-[#38E0FF]/20"
+                    }`}
+                  />
+                </div>
+                {index < steps.length - 1 && (
+                  <ChevronRight
+                    className={`h-5 w-5 flex-shrink-0 rotate-90 mt-2 mb-2 ${
                       isLastTwo ? "text-[#7de2f5]" : "text-[#38E0FF]"
                     }`}
                   />
