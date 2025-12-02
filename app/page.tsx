@@ -52,7 +52,7 @@ export default function LandingPage() {
         }}
       />
       {/* nav bar */}
-      <NavBar />
+      {/* <NavBar /> */}
 
       <main className="relative z-10 lg:container lg:mx-auto">
         <div className="sm:px-16 px-9 ">
