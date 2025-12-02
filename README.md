@@ -1,6 +1,6 @@
 # Appointment-Setter-LandingPage
 
-Next.js landing page for Sam AI Rep - A modern, responsive landing page built with Next.js 14, TypeScript, and Tailwind CSS.
+Next.js landing page for AI Appointment setter - A modern, responsive landing page built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## Features
 
