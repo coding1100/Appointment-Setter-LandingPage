@@ -7,7 +7,7 @@ const Footer: FC<Footerprops> = ({}) => {
   const footerLinks = {
     product: [
       { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms of Use", href: "/terms" },
+      { label: "Terms of Use", href: "/terms-of-use" },
     ],
     // company: [{ label: "About Us", href: "/about" }],
     social: [
@@ -69,6 +69,8 @@ const Footer: FC<Footerprops> = ({}) => {
                   <Link
                     href={item.href}
                     className="transition hover:text-white"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {item.label}
                   </Link>

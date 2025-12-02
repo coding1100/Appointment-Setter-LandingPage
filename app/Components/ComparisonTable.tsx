@@ -17,7 +17,7 @@ const ComparisonTable: FC<ComparisonTableProps> = () => {
     "Prompt Injection Defense & Security",
   ];
 
-  // Your Atlas has ticks for first 3 features, rest are crosses
+  // Other AI Setter has ticks for first 3 features, rest are crosses
   const yourAtlasFeatures = [
     true, // tick
     true, // tick
@@ -36,7 +36,7 @@ const ComparisonTable: FC<ComparisonTableProps> = () => {
       <div className="mx-auto max-w-5xl">
         <div className="rounded-[32px] border border-white/10 bg-white/5 py-8 sm:py-10 px-4 sm:px-6 md:px-8 shadow-[0_25px_70px_rgba(9,18,56,0.4)] backdrop-blur-2xl">
           <h2 className=" mx-auto text-center mb-6 sm:text-3xl text-2xl font-semibold text-white md:text-[42px] md:leading-[1.1]">
-            How Our AI Rep Compares With Others
+            How Sam AI Compares With Others
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
@@ -46,10 +46,10 @@ const ComparisonTable: FC<ComparisonTableProps> = () => {
                     Features
                   </th>
                   <th className="text-center py-4 px-3 sm:px-4 md:px-5 text-sm sm:text-base font-bold text-white bg-[#070D1F]/50">
-                    AI Appointment Setter
+                    Sam AI Rep
                   </th>
                   <th className="text-center py-4 px-3 sm:px-4 md:px-5 text-sm sm:text-base font-bold text-white bg-[#070D1F]/50">
-                    Your Atlas
+                    Other AI Setter
                   </th>
                 </tr>
               </thead>

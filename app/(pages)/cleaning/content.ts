@@ -1,6 +1,6 @@
 export const CleaningData = {
   heroSection: {
-    headline: "World's first Cleaning specialist Ai Appointment setter ",
+    headline: "World's first Cleaning specialist Sam AI Rep ",
     description: "Answer Cleaning Calls Intelligently. Book Automatically",
   },
   featureSection: {
@@ -15,7 +15,7 @@ export const CleaningData = {
         anchor: "problem-busy-crews",
       },
       {
-        title: "Voice mails piling up",
+        title: "voicemails piling up",
         anchor: "problem-triage",
       },
       {
@@ -25,7 +25,7 @@ export const CleaningData = {
     ],
   },
   platformPreviewSection: {
-    headline: "Watch how our appointment setter books appointment for Cleaning",
+    headline: "Watch how Sam AI books appointment for Cleaning",
     video: "https://youtu.be/o7iFWcTJ2zc?si=5js3oRc_1DHuKoSM",
   },
   revenueSection: {
@@ -48,7 +48,7 @@ export const CleaningData = {
       headline: "Missing Late Night Calls",
       id: "problem-night-calls",
       description:
-        "AI Appointment Setter answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
+        "Sam AI answers late-night calls, identifies urgent issues, collects essential details, and books the slot before your customers reach competitors.",
       cta: "See emergency mode",
       image: "/videos/cleaningLateNightCalls.gif",
     },
@@ -56,15 +56,15 @@ export const CleaningData = {
       headline: "Missing Calls While at Work",
       id: "problem-busy-crews",
       description:
-        "While you’re busy at work, our AI Rep answers calls, gathers key details and schedules service without double-booking.",
+        "While you’re busy at work, Sam AI answers calls, gathers key details and schedules service without double-booking.",
       cta: "Streamline dispatch",
       image: "/videos/cleaningBusyOnSight.gif",
     },
     {
-      headline: "Voice Mails Piling Up",
+      headline: "voicemails Piling Up",
       id: "problem-triage",
       description:
-        "Our AI Rep ensures there are no voice mails and calls are answered in timely manner.",
+        "Sam AI ensures there are no voicemails and calls are answered in timely manner.",
       cta: "Boost show rates",
       image: "/videos/cleaningVoiceMails.gif",
     },
@@ -72,15 +72,14 @@ export const CleaningData = {
       headline: "Managing leads manually",
       id: "problem-voicemail",
       description:
-        "Our AI Rep captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
+        "Sam AI captures, qualifies, and organizes every lead automatically, ensuring faster follow-ups and preventing opportunities from slipping through the cracks.",
       cta: "Boost show rates",
       image: "/videos/CleaningManualCalls.gif",
     },
   ],
   faqSection: [
     {
-      question:
-        "How does the AI Appointment Setter handle emergency cleaning requests?",
+      question: "How does the Sam AI Rep handle emergency cleaning requests?",
       answer:
         "The AI instantly detects urgent cleaning needs, collects key details, and books the correct service slot immediately—ensuring fast response and customer satisfaction.",
     },
@@ -96,7 +95,7 @@ export const CleaningData = {
         "Absolutely. When your staff is working, the AI answers calls, collects important details, and schedules appointments automatically without human intervention.",
     },
     {
-      question: "Can the AI prevent voice mails from piling up?",
+      question: "Can the AI prevent voicemails from piling up?",
       answer:
         "Yes. The AI ensures every call is answered promptly, reducing missed messages and keeping customers engaged for faster service delivery.",
     },

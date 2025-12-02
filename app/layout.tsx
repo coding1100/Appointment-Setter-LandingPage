@@ -3,7 +3,7 @@ import "./globals.css";
 import Toaster from "./Components/Toaster";
 
 export const metadata: Metadata = {
-  title: "AI Appointment Setter - Answer plumbing calls instantly",
+  title: "Sam AI Rep - Answer plumbing calls instantly",
   description:
     "Answer plumbing calls instantly. Qualify intelligently. Book automatically.",
 };

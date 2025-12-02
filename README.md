@@ -1,6 +1,6 @@
 # Appointment-Setter-LandingPage
 
-Next.js landing page for AI Appointment Setter - A modern, responsive landing page built with Next.js 14, TypeScript, and Tailwind CSS.
+Next.js landing page for AI Appointment setter - A modern, responsive landing page built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -16,17 +16,19 @@ Next.js landing page for AI Appointment Setter - A modern, responsive landing pa
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Run the development server:
+
 ```bash
 npm run dev
 ```
