@@ -36,7 +36,7 @@ const ProcessFlow: FC<ProcessFlowProps> = () => {
             <span className="block">Increased Revenue</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-[#9AA7D1] max-w-2xl mx-auto">
-            See how our AI transforms your business in just a few simple steps
+            See how Sam AI transforms your business in just a few simple steps
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-4 sm:gap-x-3 sm:gap-y-5 md:gap-x-4 md:gap-y-6 lg:gap-x-5 lg:gap-y-6">
