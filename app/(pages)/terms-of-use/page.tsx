@@ -19,13 +19,13 @@ export default function Page() {
         }}
       />
 
-      <NavBar />
+      {/* <NavBar /> */}
 
       <main className="relative z-10">
         <TermsofUse />
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
