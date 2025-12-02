@@ -15,7 +15,7 @@ export const plumberData = {
         anchor: "problem-busy-crews",
       },
       {
-        title: "Voice mails piling up",
+        title: "voicemails piling up",
         anchor: "problem-triage",
       },
       {
@@ -61,7 +61,7 @@ export const plumberData = {
       image: "/videos/plumberBusyOnSight.gif",
     },
     {
-      headline: "Voice Mails Piling Up",
+      headline: "voicemails Piling Up",
       id: "problem-triage",
       description:
         "Sam AI ensures no call goes to voice mail, and all calls are answered instantly.",

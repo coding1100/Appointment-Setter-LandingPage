@@ -15,7 +15,7 @@ export const CleaningData = {
         anchor: "problem-busy-crews",
       },
       {
-        title: "Voice mails piling up",
+        title: "voicemails piling up",
         anchor: "problem-triage",
       },
       {
@@ -61,10 +61,10 @@ export const CleaningData = {
       image: "/videos/cleaningBusyOnSight.gif",
     },
     {
-      headline: "Voice Mails Piling Up",
+      headline: "voicemails Piling Up",
       id: "problem-triage",
       description:
-        "Sam AI ensures there are no voice mails and calls are answered in timely manner.",
+        "Sam AI ensures there are no voicemails and calls are answered in timely manner.",
       cta: "Boost show rates",
       image: "/videos/cleaningVoiceMails.gif",
     },
@@ -95,7 +95,7 @@ export const CleaningData = {
         "Absolutely. When your staff is working, the AI answers calls, collects important details, and schedules appointments automatically without human intervention.",
     },
     {
-      question: "Can the AI prevent voice mails from piling up?",
+      question: "Can the AI prevent voicemails from piling up?",
       answer:
         "Yes. The AI ensures every call is answered promptly, reducing missed messages and keeping customers engaged for faster service delivery.",
     },

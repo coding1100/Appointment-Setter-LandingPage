@@ -15,7 +15,7 @@ export const hvacData = {
         anchor: "problem-busy-crews",
       },
       {
-        title: "Voice mails piling up",
+        title: "voicemails piling up",
         anchor: "problem-triage",
       },
       {
@@ -61,10 +61,10 @@ export const hvacData = {
       image: "/videos/HVACBusyOnSight.gif",
     },
     {
-      headline: "Voice Mails Piling Up",
+      headline: "voicemails Piling Up",
       id: "problem-triage",
       description:
-        "Sam AI ensures there are no voice mails and calls are answered in timely manner.",
+        "Sam AI ensures there are no voicemails and calls are answered in timely manner.",
       cta: "Boost show rates",
       image: "/videos/HVACVoiceMails.gif",
     },
@@ -95,7 +95,7 @@ export const hvacData = {
         "Absolutely. While your crew is working, the AI answers every call, gathers necessary information, and schedules appointments automatically.",
     },
     {
-      question: "Can the AI prevent voice mails from piling up?",
+      question: "Can the AI prevent voicemails from piling up?",
       answer:
         "Yes. The AI answers every call promptly, ensuring there are no missed messages and reducing customer wait times for faster service.",
     },

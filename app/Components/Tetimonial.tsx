@@ -13,21 +13,21 @@ const Testimonial: FC<Testimonialprops> = ({}) => {
     },
     {
       quote:
-        '"Middle-of-the-night leaks were costing us thousands. The AI catches those calls, gathers details, and confirms the crew slot in seconds. Revenue jumped fast."',
+        '"Middle-of-the-night leaks were costing us thousands. Sam AI  catches those calls, gathers details, and confirms the crew slot in seconds. Revenue jumped fast."',
       name: "Ben Martin",
       city: "Phoenix, AZ — June/2025",
       image: "/images/reviews/review2.jpg",
     },
     {
       quote:
-        '"When I’m stuck in meetings, the AI picks up every call, verifies the issue, and schedules the right tech. No more callbacks or scrambling during lunch."',
+        '"When I’m stuck in meetings, the AI Appointment Setter picks up every call, verifies the issue, and schedules the right tech. No more callbacks or scrambling during lunch."',
       name: "Jason Lowery",
       city: "Denver, CO — Feb/2025",
       image: "/images/reviews/review3.webp",
     },
     {
       quote:
-        '"I used to return 20 missed calls after my shift. Now the AI handles all daytime inquiries, confirms addresses, and books jobs without double-booking."',
+        '"I used to return 20 missed calls after my shift. Now Sam AI handles all daytime inquiries, confirms addresses, and books jobs without double-booking."',
       name: "Claire Walters",
       city: "Portland, OR — Jan/2025",
       image: "/images/reviews/review4.jpg",
@@ -55,7 +55,7 @@ const Testimonial: FC<Testimonialprops> = ({}) => {
     },
     {
       quote:
-        '"Lead follow-up was slow and inconsistent. The AI sends reminders, collects details, and keeps customers engaged. Close rates are up, and no leads slip through."',
+        '"Lead follow-up was slow and inconsistent. The AI Appointment Setter sends reminders, collects details, and keeps customers engaged. Close rates are up, and no leads slip through."',
       name: "Kevin Garcia",
       city: "Tampa, FL — Dec/2024",
       image: "/images/reviews/review8.jpeg",
