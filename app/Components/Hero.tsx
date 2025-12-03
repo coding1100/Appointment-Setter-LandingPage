@@ -165,6 +165,7 @@ const Hero: FC<Heroprops> = ({}) => {
             onSubmit={handleSubmit}
             className="mt-6 sm:mt-8 md:mt-10"
             id="quoteForm"
+            autoComplete="on"
           >
             <div className="space-y-4 sm:space-y-5">
               <div>
@@ -180,6 +181,7 @@ const Hero: FC<Heroprops> = ({}) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  autoComplete="email"
                   className={`w-full rounded-lg sm:rounded-xl border ${
                     errors.email
                       ? "border-red-500/50 focus:border-red-500"
@@ -207,6 +209,7 @@ const Hero: FC<Heroprops> = ({}) => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
+                  autoComplete="tel"
                   className={`w-full rounded-lg sm:rounded-xl border ${
                     errors.phone
                       ? "border-red-500/50 focus:border-red-500"
