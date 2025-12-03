@@ -1,7 +1,5 @@
 "use client";
 
-import Footer from "@/app/Components/Footer";
-import NavBar from "@/app/Components/Navbar";
 import PrivacyPolicy from "@/app/Components/PrivacyPolicy";
 
 export default function Page() {
@@ -19,13 +17,9 @@ export default function Page() {
         }}
       />
 
-      {/* <NavBar /> */}
-
       <main className="relative z-10">
         <PrivacyPolicy />
       </main>
-
-      {/* <Footer /> */}
     </div>
   );
 }
